@@ -373,3 +373,64 @@ La funzione *built-in* `len()` funziona anche sulle liste.
 >>> x[0][1]
 'b'
 ```
+
+
+
+## Controllo del flusso
+
+Ovviamente è possibile utilizzare python per svolgere compiti molto più complessi.
+
+### `while`
+
+Ad esempio possiamo iniziare a scrivere una sotto-sequenza della serie di Fibonacci come segue:
+
+```python
+>>> # Serie di Fibonacci:
+... # la somma di due elementi definisce il successivo
+... a, b = 0, 1
+>>> while a < 10:
+...     print(a)
+...     a, b = b, a+b
+...
+0
+1
+1
+2
+3
+5
+8
+```
+
+Questo esempio introduce svariate nuove feature:
+
+- la prima riga contiene una *assegnazione multipla*: le variabili `a` e `b` ottengono simultaneamente i nuovi valori 0 e 1. È usato nuovamente nell'ultima riga dimostrando che l'espressione sulla destra è valutata prima di effettuare l'assegnazione; l'espressione sulla destra è valutata da sinistra a destra
+
+- il ciclo `while` ripete il suo *corpo* fintanto che la condizione resta vera. In python, così come in C, qualsiasi valore diverso da 0 è vero; 0 è falso. La condizione può essere anche una stringa o una lista, in tal caso qualsiasi variabile aggregata è vera se contiene almento un valore, falsa se è vuota (la sua `len()` è 0). Gli operatori di confronto standard sono:
+
+  - `<` minore di
+  - `>` maggiore di
+  - `==` uguale a
+  - `<=` minore o uguale di
+  - `>=` maggiore o uguale di
+  - `!=` non uguale
+
+- il *corpo* del ciclo è **indentato**: l'indentazione è il modo con cui python raggruppa le espressioni (*statements*). Nella shell interattiva bisogna usare o la tabulazion o spazi per ogni riga indentata; per far capire alla shell interattiva che la parte indentata è terminata, è necessario lasciare una linea bianca. È fondamentale che **ogni linea dello stesso blocco deve essere indentata dello stesso numero di spazi**.
+
+-  la funzione `print()` scrive il valore degli argomenti che gli vengono passati come parametro; è diverso scrivere l'espressione che si vuole che stampi dal passare argomenti multipli; le stringhe sono stampate senza apici e gli spazi vengono automaticamente inseriti tra gli elementi passati come parametro, è possibile per cui scrivere cose del genere
+
+  ```python
+  >>> i = 256*256
+  >>> print('Il valore di i è', i)
+  Il valore di i è 65536
+  ```
+
+  Un ulteriore modo è utilizzare l'argomento *con parola chiave* `end` per evitare che venga aggiungo un *a capo* dopo ogni stampa
+
+  ```python
+  >>> a, b = 0, 1
+  >>> while a < 1000:
+  ...     print(a, end=',')
+  ...     a, b = b, a+b
+  ...
+  0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,
+  ```
