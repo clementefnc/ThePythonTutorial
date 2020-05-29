@@ -284,10 +284,92 @@ La funzione *built-in* `len()` restituisce la lunghezza di una stringa:
 
 ### Liste
 
-https://docs.python.org/3/tutorial/introduction.html#lists
+Python ha un numero ragguardevole di tipi di dato aggregati, utilizzati per raggruppare insieme più valori. Il più versatile è la lista che può essere rappresentata da una lista di valori separati da virgola (*elementi* o *items*) racchiusi in parentesi quadre. Le liste possono contenere dati di diverso tipo ma usualmente le si usano per dati omogenei.
 
-## H2 per i capitoli
+```python
+>>> laMiaLista = [1, 2, 3, 45, 12, 0, 3]
+>>> laMiaLista
+[1, 2, 3, 45, 12, 0, 3]
+```
 
-### H3 per i sottocapitoli
+Come le stringhe e tutte i tipi *sequenza built-in*, si può accedere alle liste attraverso indici oppure ne si può effettuare lo slicing.
 
-#### H4 per eventuali paragrafi
+```python
+>>> laMiaLista[1]
+2
+>>> laMiaLista[1:3]
+[2, 3]
+```
+
+Lo slicing restituisce una nuova lista contenente gli elementi richiesti.
+
+Questo significa che l'esempio seguente restituisce una copia della lista.
+
+```python
+>>> laMiaLista[:]
+[1, 2, 3, 45, 12, 0, 3]
+```
+
+Le liste supportano inoltre la concatenazione
+
+```python
+>>> laMiaLista + [15, 62, 632]
+[1, 2, 3, 45, 12, 0, 3, 15, 62, 632]
+```
+
+A differenza delle stringhe che sono immutabili, le liste sono **modificabili**.
+
+```python
+>>> cubi = [1, 8, 27, 65, 125]  # c'è un errore
+>>> 4 ** 3  # il cubo di 4 è 64, non 65!
+64
+>>> cubi[3] = 64  # sostituiamo il valore
+>>> cubi
+[1, 8, 27, 64, 125]
+```
+
+È possibile anche aggiungere elementi in coda ad una lista utilizzando il *metodo* `append()`:
+
+```python
+>>> cubi.append(216)
+>>> cubi.append(7 ** 3)
+>>> cubi
+[1, 8, 27, 65, 125, 216, 343]
+```
+
+È possibile fare assegnamenti agli *slices* e questo può persino cambiare le dimensioni della lista o cancellarla del tutto:
+
+```python
+>>> lettere = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+>>> lettere[2:5] = ['C', 'D', 'E']
+>>> lettere
+['a', 'b', 'C', 'D', 'E', 'f', 'g']
+>>> lettere[2:5] = []
+>>> lettere
+['a', 'b', 'f', 'g']
+>>> lettere[:] = []
+>>> lettere
+[]
+```
+
+La funzione *built-in* `len()` funziona anche sulle liste.
+
+```python
+>>> lettere = ['a', 'b', 'c', 'd']
+>>> len(lettere)
+4
+```
+
+È possibile anche innestare le liste (usare una lista come elemento di una lista):
+
+```python
+>>> a = ['a', 'b', 'c']
+>>> n = [1, 2, 3]
+>>> x = [a, n]
+>>> x
+[['a', 'b', 'c'], [1, 2, 3]]
+>>> x[0]
+['a', 'b', 'c']
+>>> x[0][1]
+'b'
+```
