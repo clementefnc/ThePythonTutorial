@@ -434,3 +434,74 @@ Questo esempio introduce svariate nuove feature:
   ...
   0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,
   ```
+
+
+
+### `if`
+
+L'`if` statement permette di eseguire delle operazioni nel caso si verifichi una condizione ed usa la seguente sintassi.
+
+```python
+>>> x = int(intput("Inserisci un intero: "))
+Inserisci un intero: 42
+>>> if x < 0:
+...		x = 0
+...		print("Negativo cambiato in zero")
+... elif x == 0:
+...		print("Zero")
+... elif x == 1:
+... 	print("Singolo")
+...	else:
+...		print("Di più")
+Di più
+```
+
+Ci possono essere da zero a più parti `elif`; la parte `else` è opzionale. Una serie di `elif` sostituiscono il costrutto `switch-case` di altri linguaggi.
+
+### `for`
+
+Il `for` in python è leggermente diverso da quello che possiamo trovare in C o Pascal. Piuttosto che iterare su una successione di numeri e/o definire gli step, in python itera su una qualsiasi sequenza (lista o stringa). Ad esempio:
+
+```python
+>>> # Misura alcune stringhe:
+>>> parole = ['gatto', 'finestra', 'defenestrato']
+>>> for p in parole:
+...		print(p, len(w))
+...
+gatto 5
+finestra 8
+defenestrato 12
+```
+
+Del codice che effettua modifiche su una collezione mentre vi itera su potrebbe creare problemi, per cui in genere è più conveniente iterare su una copia della collezione o crearne una nuova.
+
+```python
+# Iterare su una copia
+for utente, stato in utenti.copy().items():
+	if stato == 'inattivo':
+		del utenti[utente]
+
+# Creare una nuova collezione
+utenti_attivi = {}
+for utente, stato in utenti.items():
+	if stato == 'active':
+		utenti_attivi[utente] = stato
+```
+
+
+
+### La funzione `range()`
+
+https://docs.python.org/3/tutorial/controlflow.html#the-range-function
+
+
+
+### `break`, `continue` ed `else` nei cicli
+
+
+
+### `pass`
+
+
+
+### Definire funzioni
